@@ -1,182 +1,182 @@
-# GIT Cheatsheet: Working with Working Directory, Staging Area, and Repository
+# GIT Cheatsheet: Rad s Working Directory, Staging Area i Repository
 
-## Basic Commands
-- **Initialize a new Git repository**
+## Osnovne komande
+- **Napravi novi Git repozitorij**
   ```bash
   git init
   ```
-- **Check the current status of the repository**
+- **Prikaz trenutnog stanja repozitorija**
   ```bash
   git status
   ```
-- **View commit history**
+- **Povijest svih commitova**
   ```bash
   git log
   git log --oneline
   ```
-- **Change the default editor for Git**
+- **Promjena zadanog editora za Git**
   ```bash
   git config --global core.editor "code --wait"
   ```
 
-## Adding and Committing
-- **Add a file to the staging area**
+## Dodavanje i commitanje
+- **Dodavanje fajla u staging**
   ```bash
   git add <file-name>
   ```
-- **Add all files in the current directory to the staging area**
+- **Dodavanje svih fajlova u trenutnom direktoriju**
   ```bash
   git add .
   ```
-- **Create a commit with a message**
+- **Kreiranje commita s porukom**
   ```bash
   git commit -m "<commit-message>"
   ```
-- **Add and commit in one step**
+- **Dodavanje i commit u jednom koraku**
   ```bash
   git commit -a -m "<commit-message>"
   ```
-- **Amend the previous commit**
+- **Izmjena prethodnog commita**
   ```bash
   git commit --amend
   ```
 
-## Branches
-- **List all branches**
+## Grane (Branches)
+- **Prikaz svih grana**
   ```bash
   git branch
   ```
-- **Create a new branch**
+- **Kreiranje nove grane**
   ```bash
   git branch <branch-name>
   ```
-- **Switch to another branch**
+- **Prebacivanje na drugu granu**
   ```bash
   git switch <branch-name>
   ```
-  - *Old command:* `git checkout <branch-name>`
-- **Create and switch to a new branch**
+  - *Stara komanda:* `git checkout <branch-name>`
+- **Kreiranje i prebacivanje na novu granu**
   ```bash
   git switch -c <branch-name>
   ```
-- **Delete a branch**
-  - Soft delete:  
+- **Brisanje grane**
+  - Mekano brisanje:  
     ```bash
     git branch -d <branch-name>
     ```
-  - Force delete:  
+  - Grubo brisanje:  
     ```bash
     git branch -D <branch-name>
     ```
-- **Rename a branch**
+- **Preimenovanje grane**
   ```bash
   git branch -m <old-name> <new-name>
   ```
 
-## Merging Branches
-- **Merge a branch into the current branch**
+## Spajanje grana (Merge)
+- **Spajanje grane u trenutnu granu**
   ```bash
   git switch master
   git merge <branch-name>
   ```
 
-## Differences (Diff)
-- **Show changes not yet staged**
+## Razlike (Diff)
+- **Prikaz promjena koje nisu staged**
   ```bash
   git diff
   ```
-- **Show the difference between HEAD and current changes (staged and unstaged)**
+- **Prikaz razlike između HEAD i trenutnih promjena (staged i unstaged)**
   ```bash
   git diff HEAD
   ```
-- **Show staged changes**
+- **Prikaz staged promjena**
   ```bash
   git diff --staged
   git diff --cached
   ```
-- **Show differences in a specific file**
+- **Razlike u specifičnom fajlu**
   ```bash
   git diff HEAD <file-name>
   ```
-- **Show differences between two commits**
+- **Razlike između dva commita**
   ```bash
   git diff <commit-1>..<commit-2>
   ```
-- **Difference between HEAD and the previous commit**
+- **Razlika između HEAD-a i prethodnog commita**
   ```bash
   git diff HEAD HEAD~1
   ```
 
-## Temporary Saving (Stash)
-- **Stash changes without committing**
+## Privremeno spremanje promjena (Stash)
+- **Spremanje promjena bez commitanja**
   ```bash
   git stash
   ```
-- **Apply stashed changes**
+- **Izvlačenje spremljenih promjena**
   ```bash
   git stash pop
   ```
 
-## Resetting Changes
-- **Discard current changes**
+## Resetiranje promjena
+- **Odbacivanje trenutnih promjena**
   ```bash
   git restore <file-name>
   ```
-  - *Old command:* `git checkout -- <file-name>`
-- **Restore changes from another commit**
+  - *Stara komanda:* `git checkout -- <file-name>`
+- **Izmjene s drugog commita**
   ```bash
   git restore --source <commit-hash> <file-name>
   ```
-- **Unstage a file**
+- **Makni fajl iz staginga (unstage)**
   ```bash
   git restore --staged <file-name>
   ```
-- **Reset to a specific commit**
-  - Keep changes in the working directory:
+- **Resetiranje na određeni commit**
+  - Samo iz repozitorija:
     ```bash
     git reset <commit-hash>
     ```
-  - Discard all changes:
+  - Iz repozitorija i radnog prostora:
     ```bash
     git reset --hard <commit-hash>
     ```
 
-## Reverting Changes
-- **Revert a specific commit**
+## Povrat promjena (Revert)
+- **Revertanje specifičnog commita**
   ```bash
   git revert <commit-hash>
   ```
 
-## Remote Repositories
-- **Clone a remote repository**
+## Rad s udaljenim repozitorijima (Remote)
+- **Kloniranje udaljenog repozitorija**
   ```bash
   git clone <repo-url>
   ```
-- **Show remote destinations**
+- **Prikaz udaljenih destinacija**
   ```bash
   git remote -v
   ```
-- **Rename a remote destination**
+- **Promjena imena remote destinacije**
   ```bash
   git remote rename <old-name> <new-name>
   ```
-- **Remove a remote destination**
+- **Brisanje remote destinacije**
   ```bash
   git remote remove <name>
   ```
-- **Push changes to a remote repository**
+- **Slanje promjena na remote**
   ```bash
   git push <remote> <branch>
   ```
-- **Set upstream for a branch**
+- **Postavljanje upstream-a za branch**
   ```bash
   git push -u <remote> <branch>
   ```
-- **Pull changes from a remote repository**
+- **Skidanje promjena s remote-a**
   ```bash
   git pull <remote> <branch>
   ```
-- **Fetch changes without merging**
+- **Preuzimanje promjena bez merge-a**
   ```bash
   git fetch <remote> <branch>
   ```
